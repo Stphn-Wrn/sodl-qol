@@ -1,0 +1,50 @@
+{
+  "id": "sodl-qol",
+  "title": "L'Ombre du Seigneur Démon - Améliorations",
+  "description": "Corrections et confort de jeu pour le système demonlord sous Foundry v14 : talents appliqués aux attaques et aux sorts, faveurs et pénalités lues dans les textes des sorts et talents, encombrement qui ne se cumule plus, et types d'effets du système rétablis.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "demonlord",
+        "type": "system",
+        "compatibility": {
+          "minimum": "6.1.0",
+          "verified": "6.1.0"
+        }
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "Courbette"
+    }
+  ],
+  "url": "https://github.com/Stphn-Wrn/sodl-qol",
+  "manifest": "https://raw.githubusercontent.com/Stphn-Wrn/sodl-qol/main/module.json",
+  "download": "https://github.com/Stphn-Wrn/sodl-qol/releases/download/v0.1.0/sodl-qol.zip",
+  "license": "MIT",
+  "esmodules": [
+    "src/main.js"
+  ],
+  "styles": [
+    "src/features/talents/talents.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": true
+}

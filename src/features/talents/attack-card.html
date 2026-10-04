@@ -1,0 +1,7 @@
+<div class="description sodl-talents-detail">
+  <div class="header">{{localize "SODLQOL.Card.Title"}} :</div>
+  <div class="body">
+    {{#if activeBonus}}<span>&nbsp;&nbsp;&nbsp;&nbsp;• {{activeBonus}} <i>({{localize "SODLQOL.Card.ActiveBonuses"}})</i></span><br>{{/if}}
+    {{#each talents}}<span class="{{#if this.source}}sodl-talents-has-source{{/if}}" {{#if this.source}}data-tooltip="{{this.source}}"{{/if}}>&nbsp;&nbsp;&nbsp;&nbsp;• {{this.summary}} <i>({{this.name}}{{#if this.upgradedBy}}, {{localize "SODLQOL.Card.UpgradedBy" name=this.upgradedBy}}{{/if}})</i></span><br>{{/each}}
+  </div>
+</div>

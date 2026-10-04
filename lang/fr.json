@@ -1,0 +1,71 @@
+{
+  "SODLQOL": {
+    "Dialog": {
+      "Title": "Talents",
+      "Hint": "Cochez les talents à appliquer à cette attaque. Survolez un talent pour lire ce qu'il fait.",
+      "Active": "déjà actif",
+      "NoUses": "plus d'utilisation",
+      "OpenTalent": "Voir le talent"
+    },
+    "Bonus": {
+      "Boons": "+{count} faveur",
+      "BoonsPlural": "+{count} faveurs",
+      "Damage": "{dice} dégâts",
+      "Plus20Damage": "{dice} dégâts sur 20+",
+      "FromText": "(d'après la description)"
+    },
+    "Notify": {
+      "Applied": "Talents appliqués à l'attaque : {names}.",
+      "EffectsRepaired": "Effets réparés pour {count} acteur(s) : Vitesse, Taille, armures et rôles reprennent leurs valeurs."
+    },
+    "Card": {
+      "Title": "Bonus des talents",
+      "ActiveBonuses": "Talents actifs",
+      "UpgradedBy": "amélioré par {name}",
+      "DamageTitle": "Détail des dégâts"
+    },
+    "Settings": {
+      "attackTalents": {
+        "Name": "Talents dans les attaques",
+        "Hint": "Ajoute la section Talents aux fenêtres d'attaque d'arme et de sort, applique les talents cochés, détaille les bonus sur les cartes, et corrige le bug du système qui ignore les dégâts supplémentaires des talents."
+      },
+      "encumbranceFix": {
+        "Name": "Correction de l'encombrement",
+        "Hint": "Corrige le bug du système avec Foundry v14 qui cumule un nouvel effet « Encombré » à chaque changement d'équipement et ne le retire jamais. Les doublons existants sont supprimés au chargement du monde."
+      },
+      "effectTypesFix": {
+        "Name": "Correction des types d'effets",
+        "Hint": "Le système utilise des noms de types d'effets que Foundry v14 ne reconnaît plus : tous ses « remplacer », « au plus » et « au moins » deviennent des « ajouter » (Vitesse d'ascendance ajoutée à la base, Ralenti qui donne de la Vitesse, Sans défense qui ajoute de la Défense…). Le module rétablit ces types et répare une fois les effets déjà enregistrés dans le monde."
+      },
+      "textEffects": {
+        "Name": "Effets lus dans les textes",
+        "Hint": "Lit dans la description des sorts et des talents les faveurs et pénalités durables qu'ils donnent (« the target makes attack rolls with 2 banes for 1 minute ») et les pose sur les cibles ou le lanceur, avec leur durée de combat convertie en rounds (1 minute = 6 rounds ; les durées en heures sont laissées au MJ). Demande confirmation quand c'est conditionnel, optionnel ou après une attaque. Les talents passifs reçoivent un effet permanent."
+      }
+    },
+    "TextEffects": {
+      "Boon": "{count} faveur",
+      "Boons": "{count} faveurs",
+      "Bane": "{count} pénalité",
+      "Banes": "{count} pénalités",
+      "Rolls": {
+        "attack": "{amount} aux jets d'attaque",
+        "challenge": "{amount} aux jets de caractéristique"
+      },
+      "AgainstIt": "{amount} pour ceux qui l'attaquent",
+      "Round": "{count} round",
+      "Rounds": "{count} rounds",
+      "UntilRemoved": "jusqu'à ce qu'on le retire",
+      "Attributes": {
+        "strength": "Force",
+        "agility": "Agilité",
+        "intellect": "Intelligence",
+        "will": "Volonté",
+        "perception": "Perception"
+      },
+      "AskTitle": "{name} : appliquer l'effet ?",
+      "AskApply": "Appliquer « {effect} » à : {targets} ?",
+      "Applied": "{name} : {effect} → {targets}",
+      "NoGM": "Un MJ doit être connecté pour poser un effet sur une créature que vous ne contrôlez pas."
+    }
+  }
+}

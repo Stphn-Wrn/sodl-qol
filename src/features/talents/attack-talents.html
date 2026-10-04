@@ -1,0 +1,22 @@
+<fieldset class="sodl-talents">
+  <legend>{{localize "SODLQOL.Dialog.Title"}}</legend>
+  <p class="sodl-talents-hint">{{localize "SODLQOL.Dialog.Hint"}}</p>
+  <ul class="sodl-talents-list">
+    {{#each talents}}
+    <li class="{{#unless this.available}}is-unavailable{{/unless}}" {{#if this.description}}data-tooltip-html="{{this.description}}" data-tooltip-direction="LEFT"{{/if}}>
+      <label>
+        <input type="checkbox" data-sodl-talent="{{this.id}}" {{#if this.active}}checked{{/if}} {{#unless this.available}}disabled{{/unless}}>
+        <img src="{{this.img}}" alt="">
+        <span class="sodl-talents-name">{{this.name}}</span>
+        <span class="sodl-talents-summary">{{this.summary}}</span>
+        {{#if this.active}}
+        <span class="sodl-talents-uses">{{localize "SODLQOL.Dialog.Active"}}</span>
+        {{else if this.uses}}
+        <span class="sodl-talents-uses" title="{{#unless this.available}}{{localize 'SODLQOL.Dialog.NoUses'}}{{/unless}}">{{this.uses}}</span>
+        {{/if}}
+      </label>
+      <button type="button" class="sodl-talents-sheet" data-sodl-talent-sheet="{{this.id}}" title="{{localize 'SODLQOL.Dialog.OpenTalent'}}"><i class="fas fa-circle-info"></i></button>
+    </li>
+    {{/each}}
+  </ul>
+</fieldset>

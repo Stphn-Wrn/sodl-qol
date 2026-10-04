@@ -1,0 +1,71 @@
+{
+  "SODLQOL": {
+    "Dialog": {
+      "Title": "Talents",
+      "Hint": "Tick the talents to apply to this attack. Hover a talent to read what it does.",
+      "Active": "already active",
+      "NoUses": "no use left",
+      "OpenTalent": "Open the talent"
+    },
+    "Bonus": {
+      "Boons": "+{count} boon",
+      "BoonsPlural": "+{count} boons",
+      "Damage": "{dice} damage",
+      "Plus20Damage": "{dice} damage on 20+",
+      "FromText": "(from the description)"
+    },
+    "Notify": {
+      "Applied": "Talents applied to the attack: {names}.",
+      "EffectsRepaired": "Effects repaired for {count} actor(s): Speed, Size, armor and roles are back to their values."
+    },
+    "Card": {
+      "Title": "Talent bonuses",
+      "ActiveBonuses": "Active talents",
+      "UpgradedBy": "upgraded by {name}",
+      "DamageTitle": "Damage details"
+    },
+    "Settings": {
+      "attackTalents": {
+        "Name": "Talents in attacks",
+        "Hint": "Adds the Talents section to weapon and spell attack dialogs, applies the ticked talents, details the bonuses on the cards, and fixes the system bug that ignores talent extra damage."
+      },
+      "encumbranceFix": {
+        "Name": "Encumbrance fix",
+        "Hint": "Fixes the system bug with Foundry v14 that stacks a new \"Encumbered\" effect on every equipment change and never removes it. Existing copies are removed when the world loads."
+      },
+      "effectTypesFix": {
+        "Name": "Effect types fix",
+        "Hint": "The system uses effect type names Foundry v14 no longer knows: all its \"override\", \"downgrade\" and \"upgrade\" changes become \"add\" (ancestry Speed added to the base, Slowed giving Speed, Defenseless adding Defense…). The module restores these types and repairs, once, the effects already saved in the world."
+      },
+      "textEffects": {
+        "Name": "Effects read from texts",
+        "Hint": "Reads in spell and talent descriptions the lasting boons and banes they give (\"the target makes attack rolls with 2 banes for 1 minute\") and puts them on the targets or the caster, with their combat duration converted to rounds (1 minute = 6 rounds; durations in hours are left to the GM). Asks for confirmation when it is conditional, optional or follows an attack. Passive talents get a permanent effect."
+      }
+    },
+    "TextEffects": {
+      "Boon": "{count} boon",
+      "Boons": "{count} boons",
+      "Bane": "{count} bane",
+      "Banes": "{count} banes",
+      "Rolls": {
+        "attack": "{amount} on attack rolls",
+        "challenge": "{amount} on challenge rolls"
+      },
+      "AgainstIt": "{amount} for whoever attacks it",
+      "Round": "{count} round",
+      "Rounds": "{count} rounds",
+      "UntilRemoved": "until removed",
+      "Attributes": {
+        "strength": "Strength",
+        "agility": "Agility",
+        "intellect": "Intellect",
+        "will": "Will",
+        "perception": "Perception"
+      },
+      "AskTitle": "{name}: apply the effect?",
+      "AskApply": "Apply \"{effect}\" to: {targets}?",
+      "Applied": "{name}: {effect} → {targets}",
+      "NoGM": "A GM must be connected to put an effect on a creature you do not control."
+    }
+  }
+}

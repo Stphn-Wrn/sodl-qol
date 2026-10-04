@@ -1,0 +1,80 @@
+.sodl-talents {
+  margin-top: 6px;
+  padding: 6px 8px;
+}
+
+.sodl-talents-hint {
+  margin: 0 0 4px;
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.sodl-talents-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sodl-talents-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sodl-talents-list label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  cursor: pointer;
+}
+
+.sodl-talents-list img {
+  width: 22px;
+  height: 22px;
+  border: none;
+}
+
+.sodl-talents-name {
+  font-weight: bold;
+}
+
+.sodl-talents-summary {
+  flex: 1;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.sodl-talents-uses {
+  font-size: 11px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.sodl-talents-list li.is-unavailable label {
+  cursor: default;
+  opacity: 0.55;
+}
+
+/* Foundry gives buttons a fixed size and a frame; the info button is a plain icon. */
+.sodl-talents-sheet {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 2px 4px;
+  border: none;
+  background: none;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.sodl-talents-sheet:hover {
+  opacity: 1;
+}
+
+/* The chat detail reuses the system's "description" blocks; only the hover hint is added. */
+.sodl-talents-detail .sodl-talents-has-source {
+  cursor: help;
+}
