@@ -1,0 +1,28 @@
+{
+  "group": "sodl",
+  "platform": "foundry",
+  "icon": "fa-screwdriver-wrench",
+  "order": 20,
+  "text": {
+    "fr": {
+      "title": "Améliorations",
+      "summary": "Corrections et confort de jeu pour le système demonlord sous Foundry v14.",
+      "features": [
+        "Talents appliqués aux attaques et aux sorts, dégâts compris",
+        "Faveurs et pénalités lues dans les textes des sorts et talents",
+        "Encombrement qui ne se cumule plus",
+        "Types d'effets du système rétablis"
+      ]
+    },
+    "en": {
+      "title": "Improvements",
+      "summary": "Fixes and quality of life for the demonlord system on Foundry v14.",
+      "features": [
+        "Talents applied to weapon and spell attacks, damage included",
+        "Boons and banes read from spell and talent texts",
+        "Encumbrance no longer stacks",
+        "System effect modes restored"
+      ]
+    }
+  }
+}
