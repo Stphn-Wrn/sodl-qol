@@ -131,16 +131,43 @@ function usesOf(talentSystem) {
   return { value: toInteger(talentSystem.uses?.value), max: toInteger(talentSystem.uses?.max) };
 }
 
+const DAMAGE_KEYS = ["system.bonuses.attack.damage", "system.bonuses.attack.plus20Damage"];
+
+// The system reads "damage" alone (older effects), ".all", or the slot of the attack kind.
+function addsDamageTo(change, kind) {
+  return DAMAGE_KEYS.some((key) => [key, `${key}.all`, `${key}.${kind}`].includes(change.key));
+}
+
+function isEnabled(effect) {
+  return effect.disabled !== true && effect.isSuppressed !== true;
+}
+
+// The talent's own effects that reach the actor, and the effects the system put on the actor for it.
+function effectsOf(item, actorEffects) {
+  const own = [...(item.effects ?? [])].filter((effect) => effect.transfer !== false);
+  const placed = actorEffects.filter((effect) => item.uuid && effect.origin === item.uuid);
+  return [...own, ...placed];
+}
+
+// An enabled effect already adds the talent's damage to this kind of attack, so ticking it would count it twice.
+function damageAlreadyApplied(item, actorEffects, kind) {
+  return effectsOf(item, actorEffects)
+    .filter(isEnabled)
+    .some((effect) => (effect.changes ?? []).some((change) => addsDamageTo(change, kind)));
+}
+
 // Talents already active on the sheet apply through the system's own effects, so they are shown but cannot be ticked;
-// the system applies nothing for a bonus read from the description, so such a talent stays available.
-export function attackTalentOptions(items, attribute, t, kind = "weapon") {
+// the system applies nothing for a bonus read from the description, so such a talent stays available,
+// unless an effect of the talent already adds that damage.
+export function attackTalentOptions(items, attribute, t, kind = "weapon", actorEffects = []) {
   const bonuses = talentBonuses(items, attribute, kind);
   return items
     .filter((item) => item.type === "talent")
     .map((item) => ({ item, bonus: bonuses.get(item.id), uses: usesOf(item.system) }))
     .filter(({ bonus }) => hasEffect(bonus))
     .map(({ item, bonus, uses }) => {
-      const active = item.system.addtonextroll === true && !bonus.fromText;
+      const activeOnSheet = item.system.addtonextroll === true && !bonus.fromText;
+      const active = activeOnSheet || damageAlreadyApplied(item, actorEffects, kind);
       let usesText = "";
       if (uses.max > 0) {
         usesText = `${uses.value} / ${uses.max}`;

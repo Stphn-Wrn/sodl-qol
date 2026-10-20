@@ -3,7 +3,8 @@
     "Dialog": {
       "Title": "Talents",
       "Hint": "Tick the talents to apply to this attack. Hover a talent to read what it does.",
-      "Active": "already active",
+      "Active": "already counted",
+      "ActiveHint": "This bonus is already applied by an active effect: ticking it would count it twice.",
       "NoUses": "no use left",
       "OpenTalent": "Open the talent"
     },

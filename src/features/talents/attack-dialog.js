@@ -26,7 +26,7 @@ export async function decorateAttackDialog(dialog, element) {
   const item = attack.actor.items.get(attack.itemId);
   const finesse = attack.kind === "weapon" && game.settings.get("demonlord", "finesseAutoSelect");
   const attribute = attackAttribute(item, attack.actor.system.attributes, finesse);
-  const options = attackTalentOptions([...attack.actor.items], attribute, t, attack.kind);
+  const options = attackTalentOptions([...attack.actor.items], attribute, t, attack.kind, [...attack.actor.effects]);
   if (options.length === 0) {
     releaseSelection(attack);
     return;

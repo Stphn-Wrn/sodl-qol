@@ -10,7 +10,7 @@
         <span class="sodl-talents-name">{{this.name}}</span>
         <span class="sodl-talents-summary">{{this.summary}}</span>
         {{#if this.active}}
-        <span class="sodl-talents-uses">{{localize "SODLQOL.Dialog.Active"}}</span>
+        <span class="sodl-talents-uses" title="{{localize 'SODLQOL.Dialog.ActiveHint'}}">{{localize "SODLQOL.Dialog.Active"}}</span>
         {{else if this.uses}}
         <span class="sodl-talents-uses" title="{{#unless this.available}}{{localize 'SODLQOL.Dialog.NoUses'}}{{/unless}}">{{this.uses}}</span>
         {{/if}}

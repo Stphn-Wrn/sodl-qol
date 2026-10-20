@@ -124,3 +124,35 @@ test("le talent amélioré garde la trace du talent qui l'améliore", () => {
 
   assert.equal(talentBonuses(items, "agility", "weapon").get("b").upgradedBy, "Brutal Backstab");
 });
+
+test("un talent dont un effet ajoute déjà ses dégâts à l'attaque est affiché comme déjà pris en compte", () => {
+  const description = "<p>Your attacks with weapons deal [[/r 1d6]] extra damage.</p>";
+  const onItem = {
+    ...textTalent("i", "Deadly Accuracy", description),
+    effects: [{ disabled: false, transfer: true, changes: [{ key: "system.bonuses.attack.damage.weapon", value: "+1d6" }] }]
+  };
+  const onActor = { ...textTalent("a", "Combat Prowess", description), uuid: "Actor.x.Item.a" };
+  const disabled = {
+    ...textTalent("d", "Désactivé", description),
+    effects: [{ disabled: true, transfer: true, changes: [{ key: "system.bonuses.attack.damage.all", value: "+1d6" }] }]
+  };
+  const actorEffects = [{ origin: "Actor.x.Item.a", disabled: false, changes: [{ key: "system.bonuses.attack.damage", value: "+1d6" }] }];
+
+  const options = attackTalentOptions([onItem, onActor, disabled], "strength", t, "weapon", actorEffects);
+
+  assert.deepEqual(options.map(({ id, active, available }) => ({ id, active, available })), [
+    { id: "i", active: true, available: false },
+    { id: "a", active: true, available: false },
+    { id: "d", active: false, available: true }
+  ]);
+});
+
+test("un effet qui ne touche que les dégâts des sorts ne compte pas pour une attaque d'arme", () => {
+  const anyAttack = {
+    ...textTalent("x", "Dirty Tricks", "<p>Your attacks deal [[/r 1d6]] extra damage.</p>"),
+    effects: [{ disabled: false, transfer: true, changes: [{ key: "system.bonuses.attack.damage.spell", value: "+1d6" }] }]
+  };
+
+  assert.equal(attackTalentOptions([anyAttack], "strength", t, "weapon")[0].active, false);
+  assert.equal(attackTalentOptions([anyAttack], "intellect", t, "spell")[0].active, true);
+});

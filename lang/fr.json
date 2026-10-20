@@ -3,7 +3,8 @@
     "Dialog": {
       "Title": "Talents",
       "Hint": "Cochez les talents à appliquer à cette attaque. Survolez un talent pour lire ce qu'il fait.",
-      "Active": "déjà actif",
+      "Active": "déjà pris en compte",
+      "ActiveHint": "Ce bonus est déjà appliqué par un effet actif : le cocher le compterait deux fois.",
       "NoUses": "plus d'utilisation",
       "OpenTalent": "Voir le talent"
     },
